@@ -1,0 +1,6 @@
+# Copy to application-local.yaml in the backend project root.
+# Use the direct Neon hostname (without -pooler) for Flyway.
+DB_URL: "jdbc:postgresql://<direct-host>/neondb?sslmode=require&channelBinding=require"
+DB_USERNAME: "neondb_owner"
+DB_PASSWORD: "<database-password>"
+JWT_SECRET: "<random-secret-at-least-32-characters>"

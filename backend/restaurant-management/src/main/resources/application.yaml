@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: restaurant-management
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 5
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+app:
+  timezone: Asia/Ho_Chi_Minh
+  seed: true
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-hours: 12
+  alert:
+    expiry-days: 3
+  reservation:
+    upcoming-warning-minutes: 60
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+    import: optional:file:./application-local.yaml
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
